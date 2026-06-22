@@ -1,0 +1,84 @@
+{
+  "seed": 1997,
+  "router_shared_across_layers": true,
+  "apply_hard": true,
+  "model_name_or_path": "meta-llama/Llama-3.2-3B-Instruct",
+  "expert_paths": [
+    "/nfs/home/seymol/paper/RL/llama_3b/arc/checkpoint-70/adapter_model.safetensors",
+    "/nfs/home/seymol/paper/RL/llama_3b/cola/checkpoint-535/adapter_model.safetensors",
+    "/nfs/home/seymol/paper/RL/llama_3b/gsm8k/final_model/adapter_model.safetensors",
+    "/nfs/home/seymol/paper/RL/llama_3b/medqa/checkpoint-637/adapter_model.safetensors",
+    "/nfs/home/seymol/paper/RL/llama_3b/boolq/checkpoint-590/adapter_model.safetensors"
+  ],
+  "enable_lora_attn": true,
+  "normalize_router_weights": false,
+  "top_k": 1,
+  "output_dir": "/nfs/home/seymol/paper/RL_T/mixer/r128_k1_hard_shared_fn1000",
+  "num_layers": null,
+  "router_alpha": 0.0,
+  "router_token_gamma": 0.0,
+  "router_sequence_gamma": 0.0,
+  "jitter_noise": 0.0,
+  "freeze_router": false,
+  "freeze_experts": true,
+  "lora_config": {
+    "r": 128,
+    "lora_alpha": 256,
+    "lora_dropout": 0.1,
+    "target_modules": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj"
+    ],
+    "bias": "none",
+    "task_type": "CAUSAL_LM",
+    "modules_to_save": null
+  },
+  "train_set_configs": [
+    {
+      "name": "math",
+      "fn_path": "data/gsm8k/primary_train.jsonl",
+      "max_num_fn": 1000
+    },
+    {
+      "name": "arc",
+      "fn_path": "data/arc-c/train.jsonl",
+      "max_num_fn": 1000
+    },
+    {
+      "name": "cola",
+      "fn_path": "data/cola/train.jsonl",
+      "max_num_fn": 1000
+    },
+    {
+      "name": "medqa",
+      "fn_path": "data/medqa/train.jsonl",
+      "max_num_fn": 1000
+    },
+    {
+      "name": "boolq",
+      "fn_path": "data/boolq/train.jsonl",
+      "max_num_fn": 1000
+    }
+  ],
+  "eval_set_configs": [],
+  "per_device_train_batch_size": 4,
+  "gradient_accumulation_steps": 4,
+  "learning_rate": 5e-06,
+  "num_train_epochs": 1.0,
+  "max_steps": -1,
+  "warmup_ratio": 0.03,
+  "logging_steps": 1,
+  "eval_steps": null,
+  "save_strategy": "steps",
+  "save_steps": 5,
+  "save_total_limit": 2,
+  "report_to": "tensorboard",
+  "fp16": false,
+  "bf16": true,
+  "gradient_checkpointing": true,
+  "dataloader_num_workers": 4,
+  "max_length": 5120,
+  "deepspeed_config": null
+}

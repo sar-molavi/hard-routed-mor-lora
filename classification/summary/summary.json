@@ -1,0 +1,42 @@
+{
+  "datasets": [
+    {
+      "dataset": "cola",
+      "total": 1043,
+      "correct": 1037,
+      "accuracy": 0.9942473633748802,
+      "output_path": "classification/bert_cls/evaluation/cola.jsonl"
+    },
+    {
+      "dataset": "arc",
+      "total": 1172,
+      "correct": 1159,
+      "accuracy": 0.9889078498293515,
+      "output_path": "classification/bert_cls/evaluation/arc.jsonl"
+    },
+    {
+      "dataset": "medqa",
+      "total": 1273,
+      "correct": 1268,
+      "accuracy": 0.9960722702278083,
+      "output_path": "classification/bert_cls/evaluation/medqa.jsonl"
+    },
+    {
+      "dataset": "gsm8k",
+      "total": 1319,
+      "correct": 1319,
+      "accuracy": 1.0,
+      "output_path": "classification/bert_cls/evaluation/gsm8k.jsonl"
+    },
+    {
+      "dataset": "boolq",
+      "total": 3270,
+      "correct": 3270,
+      "accuracy": 1.0,
+      "output_path": "classification/bert_cls/evaluation/boolq.jsonl"
+    }
+  ],
+  "total": 8077,
+  "correct": 8053,
+  "accuracy": 0.9970285997276216
+}

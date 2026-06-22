@@ -1,0 +1,40 @@
+{
+  "model_name_or_path": "meta-llama/Llama-3.2-3B-Instruct",
+  "dataset_name": "boolq",
+  "dataset_path": "data/boolq/train.jsonl",
+  "output_dir": "/nfs/home/seymol/paper/RL_T/llama_3b/boolq",
+  "gradient_checkpointing": true,
+  "per_device_train_batch_size": 4,
+  "gradient_accumulation_steps": 4,
+  "num_train_epochs": 1,
+  "learning_rate": 5e-6,
+  "lr_scheduler_type": "cosine",
+  "warmup_ratio": 0.03,
+  "logging_steps": 1,
+  "save_strategy": "steps",
+  "save_steps": 5,
+  "bf16": true,
+  "generation": {
+    "max_new_tokens": 2048,
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "use_generate_batch": false
+  },
+  "algorithm": {
+    "num_generations": 2,
+    "generation_batch_size": 8,
+    "grpo_epsilon": 1e-6
+  },
+  "lora_config": {
+    "r": 128,
+    "lora_alpha": 256,
+    "target_modules": [
+      "gate_proj",
+      "up_proj",
+      "down_proj"
+    ],
+    "lora_dropout": 0.1,
+    "bias": "none",
+    "task_type": "CAUSAL_LM"
+  }
+}

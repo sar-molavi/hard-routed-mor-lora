@@ -1,0 +1,59 @@
+{
+  "model_id": "bert-base-uncased",
+  "output_dir": "./outputs/bert_cls",
+  "dataset_info": [
+    {
+      "name": "cola",
+      "path": "data/cola/train.jsonl"
+    },
+    {
+      "name": "arc",
+      "path": "data/arc-c/train.jsonl"
+    },
+    {
+      "name": "boolq",
+      "path": "data/boolq/train.jsonl"
+    },
+    {
+      "name": "gsm8k",
+      "path": "data/gsm8k/primary_train.jsonl"
+    },
+    {
+      "name": "boolq",
+      "path": "data/boolq/train.jsonl"
+    }
+  ],
+  "validation_dataset_info": [
+    {
+      "name": "cola",
+      "path": "./data/cola_valid.jsonl"
+    },
+    {
+      "name": "arc",
+      "path": "./data/arc_valid.jsonl"
+    }
+  ],
+  "num_train_epochs": 3,
+  "learning_rate": 2e-5,
+  "weight_decay": 0.01,
+  "warmup_ratio": 0.06,
+  "per_device_train_batch_size": 8,
+  "per_device_eval_batch_size": 8,
+  "gradient_accumulation_steps": 2,
+  "gradient_checkpointing": false,
+  "save_steps": 500,
+  "eval_steps": 500,
+  "save_total_limit": 2,
+  "logging_steps": 100,
+  "max_length": 256,
+  "max_grad_norm": 1.0,
+  "bf16": false,
+  "early_stopping_patience": 2,
+  "max_train_samples": null,
+  "save_strategy": "steps",
+  "load_best_model_at_end": true,
+  "eval_strategy": "steps",
+  "lr_scheduler_type": "cosine",
+  "seed": 42,
+  "report_to": "tensorboard"
+}
